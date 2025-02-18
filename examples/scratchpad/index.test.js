@@ -1,5 +1,8 @@
-import { test, expect } from 'vitest';
+import { test, expect, vi } from 'vitest';
+
+const randomSpy = vi.spyOn(Math, 'random').mockImplementation(() => 0.5);
 
 test('a super simple test', () => {
-  expect(true).toBe(true);
+  const result = Math.random();
+  expect(result).toBe(0.5);
 });
